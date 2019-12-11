@@ -39,6 +39,7 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     
+    
     @objc public var image: UIImage?
     /**
      Array of Stickers -UIImage- that the user will choose from
@@ -86,6 +87,8 @@ public final class PhotoEditorViewController: UIViewController {
         deleteView.layer.borderWidth = 2.0
         deleteView.layer.borderColor = UIColor.white.cgColor
         deleteView.clipsToBounds = true
+        topGradient.isHidden = true
+        bottomGradient.isHidden = true
         
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .bottom
@@ -107,7 +110,7 @@ public final class PhotoEditorViewController: UIViewController {
     
     func configureCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 30, height: 30)
+        layout.itemSize = CGSize(width: 46, height: 40)
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -133,9 +136,9 @@ public final class PhotoEditorViewController: UIViewController {
     
     func hideToolbar(hide: Bool) {
         topToolbar.isHidden = hide
-        topGradient.isHidden = hide
+//        topGradient.isHidden = true
         bottomToolbar.isHidden = hide
-        bottomGradient.isHidden = hide
+//        bottomGradient.isHidden = true
     }
 }
 
